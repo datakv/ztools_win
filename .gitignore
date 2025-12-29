@@ -1,0 +1,92 @@
+
+# ===============================
+# Python bytecode / cache
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ===============================
+# Virtual environments
+# ===============================
+.venv/
+venv/
+env/
+ENV/
+.env/
+.envrc
+
+# ===============================
+# Distribution / packaging
+# ===============================
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# ===============================
+# Installer logs
+# ===============================
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===============================
+# Unit test / coverage reports
+# ===============================
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# ===============================
+# Type checking
+# ===============================
+.mypy_cache/
+.pytype/
+.pyre/
+
+# ===============================
+# Jupyter Notebook
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# PyCharm / VS Code / IDEs
+# ===============================
+.idea/
+.vscode/
+*.iml
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# ===============================
+# Logs
+# ===============================
+*.log
+
+# ===============================
+# dotenv secrets
+# ===============================
+.env.*
+!.env.example
+
+# ===============================
+# Local config overrides
+# ===============================
+config.local.*
+settings.local.*
