@@ -1,4 +1,4 @@
 
 cd ../pysp
 
-uv run click/click.py
+uv run click/clicker.py
