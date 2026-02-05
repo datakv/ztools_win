@@ -35,7 +35,7 @@ def crop_with_yunet_padded(image_path, model_path="face_detection_yunet_2023mar.
     
     final_crop = img[0:crop_y_end, 0:crop_x_end]
 
-    timestamp = datetime.now().strftime("%Y-%m-%d %H%M%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")[:-3]
     original_copy_name = f"t{timestamp}.png"
     cropped_name = f"t{timestamp}s.png"
 
@@ -53,10 +53,38 @@ def crop_with_yunet_padded(image_path, model_path="face_detection_yunet_2023mar.
     print(f"Original copy: {original_copy_name}")
     print(f"Cropped image: {cropped_name}")
 
+# if __name__ == "__main__":
+#     tmpPath = "a.png"
+#     if os.path.exists(tmpPath):
+#         crop_with_yunet_padded(tmpPath)
+#     tmpPath = "a.jpg"
+#     if os.path.exists(tmpPath):
+#         crop_with_yunet_padded(tmpPath)
+
+
+import os
+import glob
+
+
+
 if __name__ == "__main__":
-    tmpPath = "a.png"
-    if os.path.exists(tmpPath)
-        crop_with_yunet_padded(tmpPath)
-    tmpPath = "a.jpg"
-    if os.path.exists(tmpPath)
-        crop_with_yunet_padded(tmpPath)
+    # 1. 定义想要匹配的图片后缀名
+    extensions = ('*.jpg', '*.jpeg', '*.png', '*.bmp', '*.webp')
+    
+    # 2. 获取当前目录下所有的图片路径并存入 list
+    image_list = []
+    for ext in extensions:
+        # glob.glob 会自动处理路径匹配
+        image_list.extend(glob.glob(ext))
+
+    image_list.sort(key=str.lower)
+    
+    # 打印一下找到的文件，方便调试
+    print(f"共找到 {len(image_list)} 张图片: {image_list}")
+
+    # 3. 遍历 list 并执行操作
+    for img_path in image_list:
+        try:
+            crop_with_yunet_padded(img_path)
+        except Exception as e:
+            print(f"处理 {img_path} 时出错: {e}")
